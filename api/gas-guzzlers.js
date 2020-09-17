@@ -1,7 +1,7 @@
 import fetch from "isomorphic-unfetch";
 import { convertStringToNumber, formatFixedDecimals } from "./_bignumber";
 
-const ENDPOINT = `https://ethgasstation.info/json/gasguzz.json?api-key=XXAPI_Key_HereXXX`;
+const ENDPOINT = `https://ethgasstation.info/json/gasguzz.json?api-key=${process.env.DEFI_PULSE_API_KEY}`;
 
 export default async function (req, res) {
   try {
