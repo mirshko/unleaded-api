@@ -1,13 +1,12 @@
 import fetch from "isomorphic-unfetch";
 
-const ENDPOINT = `https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=
-`;
+const ENDPOINT = `https://min-api.cryptocompare.com/data/price?fsym=ETH`;
 
 export default async function (req, res) {
-  const query = req.query;
+  const { fiat = "USD,GBP,EUR" } = req.query;
 
   try {
-    const response = await fetch(ENDPOINT + query.fiat);
+    const response = await fetch(`${ENDPOINT}&tsyms=${fiat}`);
 
     const data = await response.json();
 
