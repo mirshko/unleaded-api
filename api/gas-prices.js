@@ -20,6 +20,10 @@ export default async function (req, res) {
         price: convertStringToNumber(divide(data.average, 10)),
       },
       fast: {
+        time: convertStringToNumber(multiply(data.fastWait, 60)),
+        price: convertStringToNumber(divide(data.fast, 10)),
+      },
+      fastest: {
         time: convertStringToNumber(multiply(data.fastestWait, 60)),
         price: convertStringToNumber(divide(data.fastest, 10)),
       },
